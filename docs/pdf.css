@@ -1,0 +1,44 @@
+body {
+    font-size: 10pt;
+    line-height: 1.25;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+p {
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+ul {
+    margin-top: 3px;
+    margin-bottom: 6px;
+}
+
+li {
+    margin-bottom: 1px;
+}
+
+table {
+    font-size: 9pt;
+    margin-top: 5px;
+    margin-bottom: 6px;
+}
+
+th,
+td {
+    padding: 3px 5px;
+}

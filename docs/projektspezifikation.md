@@ -41,7 +41,7 @@ Das Projekt gilt als erfolgreich umgesetzt, wenn folgende Hauptziele erreicht si
 
 ## 3. Architektur
 
-Die Testumgebung wird auf einem Windows-11-Host betrieben. Darauf werden mit **Vagrant** zwei virtuelle Debian-Systeme bereitgestellt.
+Die Testumgebung wird auf einem Windows-11-Host betrieben. Darauf werden mit **Vagrant** und **Oracle VirtualBox** zwei virtuelle Debian-Systeme bereitgestellt.
 
 Die beiden virtuellen Maschinen befinden sich in einem privaten Netzwerk und übernehmen folgende Rollen:
 
@@ -59,7 +59,9 @@ Die Übertragung der Backups vom Client zum Server erfolgt über das private Net
 
 Die geplante Architektur wird in folgendem Schema dargestellt:
 
-![Architektur des Backup-Systems](architektur.png)
+<p align="center">
+  <img src="architektur.png" alt="Architektur des Backup-Systems" width="70%">
+</p>
 
 ## 4. Anforderungen und messbare Ziele
 
