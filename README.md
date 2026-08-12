@@ -1,6 +1,6 @@
 # Automatisiertes Backup-System mit BorgBackup
 
-Projektarbeit im Rahmen des Moduls **Netzwerkbetriebssysteme**.
+Projektarbeit im Rahmen des Moduls **Netzwerkbetriebssysteme** an der **TEKO Schweizerische Fachschule Bern**.
 
 ## Projektbeschreibung
 
