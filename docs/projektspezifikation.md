@@ -24,9 +24,9 @@ Als Testumgebung werden zwei Debian-Systeme verwendet. Ein System übernimmt die
 
 Ziel des Projekts ist die Konzeption und Umsetzung eines automatisierten Backup-Systems mit **BorgBackup**. Das System soll ein definiertes Verzeichnis eines Debian-Clients über das Netzwerk auf einem separaten Debian-Backup-Server sichern.
 
-Auf dem Backup-Client wird das Verzeichnis `/home/user/testdaten` als zu sicherndes Verzeichnis verwendet. Für die Testumgebung enthält dieses Verzeichnis mindestens drei Dateien mit einer gesamten Datenmenge von mindestens **100 MB**.
+Auf dem Backup-Client wird das Verzeichnis `/home/user/testdaten` als zu sicherndes Verzeichnis verwendet. Für die Testumgebung enthält dieses Verzeichnis mindestens drei Testdateien.
 
-Das Backup soll automatisch **alle 15 Minuten** ausgeführt werden. Dieser kurze Intervall wurde gewählt, da die virtuellen Maschinen nur während der Arbeit am Projekt betrieben werden und nicht dauerhaft oder über Nacht eingeschaltet sind. Dadurch können die automatische Ausführung und die Rotation der Backups innerhalb einer Unterrichts- oder Testsitzung überprüft werden.
+Das Backup soll automatisch **alle 15 Minuten** ausgeführt werden. Dieses kurze Intervall wurde gewählt, da die virtuellen Maschinen nur während der Arbeit am Projekt betrieben werden und nicht dauerhaft oder über Nacht eingeschaltet sind. Dadurch können die automatische Ausführung und die Rotation der Backups innerhalb einer Unterrichts- oder Testsitzung überprüft werden.
 
 Für die Ausführung des Backups wird ein Bash-Skript verwendet, sodass keine manuelle Eingabe der einzelnen BorgBackup-Befehle notwendig ist.
 
@@ -40,7 +40,7 @@ Das Projekt gilt als erfolgreich umgesetzt, wenn folgende Hauptziele erreicht si
 
 - Zwei getrennte Debian-Systeme stehen als Backup-Client und Backup-Server zur Verfügung.
 - Der Backup-Client kann eine SSH-Verbindung zum Backup-Server herstellen.
-- Das Verzeichnis `/home/user/testdaten` mit mindestens drei Dateien und mindestens 100 MB Daten kann gesichert werden.
+- Das Verzeichnis `/home/user/testdaten` mit mindestens drei Testdateien kann gesichert werden.
 - Das Backup wird automatisch alle 15 Minuten ausgeführt.
 - Es werden maximal 30 Backup-Archive aufbewahrt.
 - Ältere Archive werden bei Überschreiten der definierten Anzahl automatisch entfernt.
@@ -96,10 +96,7 @@ Der Grund für diese Kommunikationsrichtung liegt darin, dass der Backup-Prozess
 
 Auf dem Backup-Client wird ausschliesslich das Verzeichnis `/home/user/testdaten` gesichert.
 
-Das Testverzeichnis enthält:
-
-- mindestens **3 Testdateien**
-- insgesamt mindestens **100 MB Daten**
+Das Testverzeichnis enthält mindestens **3 Testdateien** mit unterschiedlichen Inhalten.
 
 Andere Verzeichnisse oder Laufwerke sind nicht Bestandteil der Datensicherung.
 
@@ -109,7 +106,7 @@ Andere Verzeichnisse oder Laufwerke sind nicht Bestandteil der Datensicherung.
 
 Das Backup soll automatisch **alle 15 Minuten** durchgeführt werden.
 
-Der kurze Backup-Intervall wird für die Testumgebung verwendet, da die virtuellen Maschinen nicht dauerhaft betrieben werden. Dadurch können während einer Testsitzung mehrere automatische Backup-Durchläufe erzeugt und überprüft werden.
+Das kurze Backup-Intervall wird für die Testumgebung verwendet, da die virtuellen Maschinen nicht dauerhaft betrieben werden. Dadurch können während einer Testsitzung mehrere automatische Backup-Durchläufe erzeugt und überprüft werden.
 
 Für die Sicherung gelten folgende Parameter:
 
@@ -132,7 +129,7 @@ Für die reguläre Durchführung eines Backups sollen keine einzelnen BorgBackup
 
 Auf dem Backup-Server werden maximal **30 Backup-Archive** aufbewahrt.
 
-Sobald durch einen neuen Backup-Durchlauf mehr als 30 Archive vorhanden wären, werden die ältesten Archive automatisch entfernt. Dadurch wird verhindert, dass die Anzahl der Sicherungsstände und damit der benötigte Speicherplatz unkontrolliert anwachsen.
+Sobald durch einen neuen Backup-Durchlauf mehr als 30 Archive vorhanden wären, werden die ältesten Archive automatisch entfernt. Dadurch wird verhindert, dass die Anzahl der Sicherungsstände unkontrolliert anwächst.
 
 Bei einem Backup-Intervall von 15 Minuten entsprechen 30 Sicherungsstände bei durchgehend laufenden Systemen einer Backup-Historie von ungefähr **7 Stunden und 30 Minuten**.
 
@@ -154,7 +151,7 @@ Die definierten Anforderungen werden nach der Umsetzung mit konkreten Tests übe
 |---|---|---|---|
 | 1 | Testumgebung | Beide virtuellen Maschinen werden gestartet. | `backup-client` und `backup-server` sind als getrennte Debian-Systeme verfügbar. |
 | 2 | Netzwerk | Vom Backup-Client wird eine SSH-Verbindung zu `192.168.56.20` aufgebaut. | Der Client kann die SSH-Verbindung zum Backup-Server erfolgreich herstellen. |
-| 3 | Testdaten | Inhalt und Grösse von `/home/user/testdaten` werden kontrolliert. | Das Verzeichnis enthält mindestens 3 Dateien mit insgesamt mindestens 100 MB Daten. |
+| 3 | Testdaten | Der Inhalt von `/home/user/testdaten` wird kontrolliert. | Das Verzeichnis enthält mindestens 3 Testdateien. |
 | 4 | Backup | Das Testverzeichnis wird mit BorgBackup gesichert. | Ein neues BorgBackup-Archiv enthält die definierten Testdateien. |
 | 5 | Automatisierung | Die automatische Ausführung des Backup-Skripts wird überprüft. | Das Backup wird ohne Benutzereingabe ausgeführt. |
 | 6 | Zeitsteuerung | Die virtuellen Maschinen bleiben für mindestens 30 Minuten in Betrieb. | Innerhalb dieses Zeitraums werden entsprechend dem 15-Minuten-Intervall automatische Backups ausgeführt. |

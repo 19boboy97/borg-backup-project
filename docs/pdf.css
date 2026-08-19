@@ -1,16 +1,16 @@
 body {
     font-size: 10pt;
-    line-height: 1.25;
+    line-height: 1.28;
 }
 
 h1 {
     margin-top: 0;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 h2 {
-    margin-top: 12px;
-    margin-bottom: 5px;
+    margin-top: 14px;
+    margin-bottom: 6px;
 }
 
 h3 {
@@ -20,12 +20,12 @@ h3 {
 
 p {
     margin-top: 4px;
-    margin-bottom: 6px;
+    margin-bottom: 7px;
 }
 
 ul {
-    margin-top: 3px;
-    margin-bottom: 6px;
+    margin-top: 4px;
+    margin-bottom: 7px;
 }
 
 li {
@@ -33,12 +33,39 @@ li {
 }
 
 table {
-    font-size: 9pt;
-    margin-top: 5px;
-    margin-bottom: 6px;
+    font-size: 8.8pt;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    border-collapse: collapse;
+    width: 100%;
 }
 
 th,
 td {
-    padding: 3px 5px;
+    padding: 4px 6px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Überschriften nicht alleine am Seitenende stehen lassen */
+h2,
+h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
+/* Tabellen möglichst nicht mitten in einer Zeile umbrechen */
+tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+/* Absätze etwas zusammenhalten */
+p,
+li {
+    orphans: 3;
+    widows: 3;
 }
